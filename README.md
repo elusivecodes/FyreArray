@@ -105,6 +105,17 @@ Split an array into keys and values.
 $divided = Arr::divide($array);
 ```
 
+**Dot**
+
+Flatten a multi-dimensional array using "dot" notation.
+
+- `$array` is the input array.
+- `$prefix` is the key prefix, and will default to *null*.
+
+```php
+$dot = Arr::dot($array, $prefix);
+```
+
 **Except**
 
 Return an array without the specified key/value pairs.
@@ -174,6 +185,40 @@ Flatten a multi-dimensional array into a single level.
 
 ```php
 $flattened = Arr::flatten($array, $maxDepth);
+```
+
+**Forget Dot**
+
+Remove a key/value pair using "dot" notation.
+
+- `$array` is the input array.
+- `$key` is the key to remove.
+
+```php
+$forgetDot = Arr::forgetDot($array, $key);
+```
+
+**Get Dot**
+
+Retrieve a value using "dot" notation.
+
+- `$array` is the input array.
+- `$key` is the key to lookup.
+- `$defaultValue` is the default value to return, and will default to *null*.
+
+```php
+$forgetDot = Arr::forgetDot($array, $key, $defaultValue);
+```
+
+**Has Dot**
+
+Check if a given element exists in an array using "dot" notation.
+
+- `$array` is the input array.
+- `$key` is the key to check for.
+
+```php
+$hasKey = Arr::hasKey($array, $key);
 ```
 
 **Has Key**
@@ -322,6 +367,17 @@ Pad an array to a specified length with a value.
 $padded = Arr::pad($array, $size, $value);
 ```
 
+**Pluck Dot**
+
+Pluck a list of values using "dot" notation.
+
+- `$arrays` is the input arrays.
+- `$key` is the key to lookup.
+
+```php
+$values = Arr::pluckDot($arrays, $key);
+```
+
 **Pop**
 
 Pop the element off the end of array.
@@ -386,6 +442,19 @@ Return an array with elements in reverse order.
 
 ```php
 $reversed = Arr::reverse($array);
+```
+
+**Set Dot**
+
+Set a value using "dot" notation.
+
+- `$array` is the input array.
+- `$key` is the key.
+- `$value` is the value to set.
+- `$overwrite` determines if previous values will be overwritten, and will default to *true*.
+
+```php
+$setDot = Arr::setDot($array, $key, $value, $overwrite);
 ```
 
 **Shift**

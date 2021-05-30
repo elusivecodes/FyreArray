@@ -150,6 +150,32 @@ abstract class Arr
     }
 
     /**
+     * Flatten a multi-dimensional array using "dot" notation.
+     * @param array $array The input array.
+     * @param string|null $prefix The key prefix.
+     * @return array The flattened array.
+     */
+    public static function dot(array $array, string|null $prefix = null): array
+    {
+        $result = [];
+
+        foreach ($array AS $key => $value) {
+            if ($prefix) {
+                $key = $prefix.'.'.$key;
+            }
+
+            if (static::isArray($value)) {
+                $dot = static::dot($value, $key);
+                $result = static::merge($result, $dot);
+            } else {
+                $result[$key] = $value;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Return an array without the specified key/value pairs.
      * @param array $array The input array.
      * @param array $keys The keys to remove.
@@ -243,6 +269,72 @@ abstract class Arr
             ),
             []
         );
+    }
+
+    /**
+     * Remove a key/value pair using "dot" notation.
+     * @param array $array The input array.
+     * @param string $key The key.
+     * @return array The filtered array.
+     */
+    public static function forgetDot(array $array, string $key): array
+    {
+        $keys = explode('.', $key);
+
+        $pointer = &$array;
+
+        while (($key = static::shift($keys)) && static::count($keys) > 0) {
+            if (!static::isArray($pointer) || !static::hasKey($pointer, $key)) {
+                return $array;
+            }
+    
+            $pointer = &$pointer[$key];
+        }
+
+        unset($pointer[$key]);
+
+        return $array;
+    }
+
+    /**
+     * Retrieve a value using "dot" notation.
+     * @param array $array The input array.
+     * @param string $key The key.
+     * @param mixed $default The default value to return.
+     * @return mixed The value.
+     */
+    public static function getDot(array $array, string $key, $default = null)
+    {
+        $result = $array;
+
+        foreach (explode('.', $key) AS $key) {
+            if (!static::isArray($result) || !static::hasKey($result, $key)) {
+                return $default;
+            }
+
+            $result = $result[$key];
+        }
+
+        return $result;
+    }
+
+    /**
+     * Check if a given element exists in an array using "dot" notation.
+     * @param array $array The input array.
+     * @param string The key to check for.
+     * @return bool Whether the given element exists in the array.
+     */
+    public static function hasDot(array $array, string $key): bool
+    {
+        foreach (explode('.', $key) AS $key) {
+            if (!static::isArray($array) || !static::hasKey($array, $key)) {
+                return false;
+            }
+
+            $array =& $array[$key];
+        }
+
+        return true;
     }
 
     /**
@@ -404,6 +496,23 @@ abstract class Arr
     }
 
     /**
+     * Pluck a list of values using "dot" notation.
+     * @param array $arrays The input arrays.
+     * @param string $key The key to lookup.
+     * @return array An array of values.
+     */
+    public static function pluckDot(array $arrays, string $key): array
+    {
+        $result = [];
+
+        foreach ($arrays AS $array) {
+            $result[] = static::getDot($array, $key);
+        }
+
+        return $result;
+    }
+
+    /**
      * Pop the element off the end of the array.
      * @param array $array The input array.
      * @return mixed The last value of the array.
@@ -471,6 +580,49 @@ abstract class Arr
     public static function reverse(array $array, bool $preserveKeys = false): array
     {
         return array_reverse($array, $preserveKeys);
+    }
+
+    /**
+     * Set a value using "dot" notation.
+     * @param array $array The input array.
+     * @param string $key The key.
+     * @param mixed $value The value to set.
+     * @param bool $overwrite Whether to overwrite previous values.
+     * @return array The modified array.
+     */
+    public static function setDot(array $array, string $key, $value, bool $overwrite = true): array
+    {
+        $keys = explode('.', $key);
+
+        $pointer = &$array;
+
+        while (($key = static::shift($keys)) && static::count($keys) > 0) {
+            if ($key !== '*') {
+                if (!static::hasKey($pointer, $key) || !static::isArray($pointer[$key])) {
+                    $pointer[$key] = [];
+                }
+                $pointer = &$pointer[$key];
+
+                continue;
+            }
+
+            foreach ($pointer AS &$point) {
+                static::setDot(
+                    $point,
+                    static::join($keys, '.'),
+                    $value,
+                    $overwrite
+                );
+            }
+
+            return $array;
+        }
+
+        if ($overwrite || !static::hasKey($pointer, $key)) {
+            $pointer[$key] = $value;
+        }
+
+        return $array;
     }
 
     /**
