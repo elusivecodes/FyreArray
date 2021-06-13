@@ -33,6 +33,7 @@ final class ArrTest extends TestCase
         IndexOfTest,
         IntersectTest,
         IsArrayTest,
+        IsListTest,
         JoinTest,
         KeysTest,
         LastIndexOfTest,

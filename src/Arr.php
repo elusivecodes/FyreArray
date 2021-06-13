@@ -407,6 +407,25 @@ abstract class Arr
     }
 
     /**
+     * Determine if an array has consecutive keys starting from 0.
+     * @param mixed $array The array to test.
+     * @return bool TRUE if the value has consecutive keys starting from 0, otherwise FALSE.
+     */
+    public static function isList(array $array): bool
+    {
+        $nextKey = 0;
+        foreach ($array AS $key => $value) {
+            if ($key !== $nextKey) {
+                return false;
+            }
+
+            $nextKey++;
+        }
+
+        return true;
+    }
+
+    /**
      * Join an array elements using a specified seperator.
      * @param array $array The input array.
      * @param string $seperator The seperator to join with.

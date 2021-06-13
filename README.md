@@ -288,6 +288,16 @@ Determine if the value is an array.
 $isArray = Arr::isArray($value);
 ```
 
+**Is List**
+
+Determine if an array has consecutive keys starting from 0.
+
+- `$array` is the array to test.
+
+```php
+$isList = Arr::isList($array);
+```
+
 **Join**
 
 Join an array elements using a specified seperator.
