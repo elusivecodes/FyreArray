@@ -31,8 +31,8 @@ use Fyre\Arr;
 Split an array into chunks.
 
 - `$array` is the input array.
-- `$size` is the size of each chunk.
-- `$preserveKeys` determines if the array keys will be preserved, and will default to *false*.
+- `$size` is a number representing the size of each chunk.
+- `$preserveKeys` is a boolean indicating whether the array keys will be preserved, and will default to *false*.
 
 ```php
 $chunk = Arr::chunk($array, $size, $preserveKeys);
@@ -65,8 +65,8 @@ $column = Arr::column($array, $key);
 
 Creates an array by using one array for keys and another for its values.
 
-- `$keys` is the keys array.
-- `$values` is the keys array.
+- `$keys` is an array containing the keys.
+- `$values` is an array containing the values.
 
 ```php
 $combined = Arr::combine($keys, $values);
@@ -77,7 +77,7 @@ $combined = Arr::combine($keys, $values);
 Count all elements in an array.
 
 - `$array` is the input array.
-- `$mode` is the counting mode, and will default to *COUNT_NORMAL*.
+- `$mode` is an integer representing the counting mode, and will default to *Arr::COUNT_NORMAL*.
 
 ```php
 $count = Arr::count($array, $mode);
@@ -110,7 +110,7 @@ $divided = Arr::divide($array);
 Flatten a multi-dimensional array using "dot" notation.
 
 - `$array` is the input array.
-- `$prefix` is the key prefix, and will default to *null*.
+- `$prefix` is a string representing the key prefix, and will default to *null*.
 
 ```php
 $dot = Arr::dot($array, $prefix);
@@ -121,7 +121,7 @@ $dot = Arr::dot($array, $prefix);
 Return an array without the specified key/value pairs.
 
 - `$array` is the input array.
-- `$keys` is the keys to remove.
+- `$keys` is an array containing the keys to remove.
 
 ```php
 $except = Arr::except($array, $keys);
@@ -131,7 +131,7 @@ $except = Arr::except($array, $keys);
 
 Fill an array with values.
 
-- `$amount` is the number of elements to insert.
+- `$amount` is a number representing the number of elements to insert.
 - `$value` is the value to insert.
 
 ```php
@@ -144,12 +144,12 @@ Filter elements of an array using a callback function.
 
 - `$array` is the input array.
 - `$callback` is the callback function to use.
-- `$mode` is the lagf determining arguments sent to the callback.
+- `$mode` is a number determining representing which arguments will be sent to the callback, and will default to *Arr::FILTER_BOTH*.
 
 If `$callback` is omitted this function will filter empty elements from the array.
 
 ```php
-$filtered = Arr::filtered($array, $callback);
+$filtered = Arr::filter($array, $callback);
 ```
 
 **Find**
@@ -158,7 +158,7 @@ Find the first value in an array that satisfies a callback.
 
 - `$array` is the input array.
 - `$callback` is the callback function to use.
-- `$default` is the default value to return.
+- `$default` is the default value to return, and will default to *null*.
 
 ```php
 $find = Arr::find($array, $callback, $default);
@@ -181,7 +181,7 @@ $findLast = Arr::findLast($array, $callback, $default);
 Flatten a multi-dimensional array into a single level.
 
 - `$array` is the input array.
-- `$maxDepth` is the maximum depth to flatten, and will default to *1*.
+- `$maxDepth` is a number representing the maximum depth to flatten, and will default to *1*.
 
 ```php
 $flattened = Arr::flatten($array, $maxDepth);
@@ -260,7 +260,7 @@ Search an array for a given value and returns the first key.
 
 - `$array` is the input array.
 - `$value` is the value to search for.
-- `$strict` determines if a strict search will be performed, and will default to *false*.
+- `$strict` is a boolean indicating whether a strict search will be performed, and will default to *false*.
 
 ```php
 $indexOf = Arr::indexOf($array, $value, $strict);
@@ -303,7 +303,7 @@ $isList = Arr::isList($array);
 Join an array elements using a specified seperator.
 
 - `$array` is the input array.
-- `$seperator` is the seperator to join with, and will default to *","*
+- `$seperator` is a string representing the seperator to join with, and will default to *","*
 
 ```php
 $joined = Arr::join($array, $seperator);
@@ -325,7 +325,7 @@ Search an array for a given value and returns the last key.
 
 - `$array` is the input array.
 - `$value` is the value to search for.
-- `$strict` determines if a strict search will be performed, and will default to *false*.
+- `$strict` is a boolean indicating whether a strict search will be performed, and will default to *false*.
 
 ```php
 $lastIndexOf = Arr::lastIndexOf($array, $value, $strict);
@@ -359,7 +359,7 @@ $merged = Arr::merge($array, ...$arrays);
 Return an array with only the specified key/value pairs.
 
 - `$array` is the input array.
-- `$keys` is the keys to include.
+- `$keys` is an array containing the keys to include.
 
 ```php
 $only = Arr::only($array, $keys);
@@ -370,7 +370,7 @@ $only = Arr::only($array, $keys);
 Pad an array to a specified length with a value.
 
 - `$array` is the input array.
-- `$size` is the new size of the array.
+- `$size` is a number representing the new size of the array.
 - `$value` is the value to pad with.
 
 ```php
@@ -424,9 +424,9 @@ $randomValue = Arr::randomValue($array);
 
 Create an array containing a range of elements.
 
-- `$start` is the first value of the sequence.
-- `$end` is the ending value in the sequence.
-- `$step` is the increment between values in the sequence, and will default to *1*.
+- `$start` is a number representing the first value of the sequence.
+- `$end` is a number representing the ending value in the sequence.
+- `$step` is a number representing the increment between values in the sequence, and will default to *1*.
 
 ```php
 $range = Arr::range($start, $end, $step);
@@ -461,7 +461,7 @@ Set a value using "dot" notation.
 - `$array` is the input array.
 - `$key` is the key.
 - `$value` is the value to set.
-- `$overwrite` determines if previous values will be overwritten, and will default to *true*.
+- `$overwrite` is a boolean indicating whether previous values will be overwritten, and will default to *true*.
 
 ```php
 $setDot = Arr::setDot($array, $key, $value, $overwrite);
@@ -492,8 +492,8 @@ $shuffled = Arr::shuffle($array);
 Extract a slice of the array.
 
 - `$array` is the input array.
-- `$offset` is the starting offset.
-- `$length` is the length of the slice.
+- `$offset` is a number representing the starting offset.
+- `$length` is a number representing the length of the slice.
 - `$preserveKeys` determines if the array keys will be preserved, and will default to *false*.
 
 ```php
@@ -505,7 +505,7 @@ $slice = Arr::slice($array, $offset, $length, $preserveKeys);
 Sort an array.
 
 - `$array` is the input array.
-- `$sort` is a sorting flag or a comparison callback, and will default to *SORT_NATURAL*.
+- `$sort` is a number representing the sorting flag or a comparison callback, and will default to *Arr::SORT_NATURAL*.
 
 ```php
 $sorted = Arr::sort($array, $sort);
@@ -516,8 +516,8 @@ $sorted = Arr::sort($array, $sort);
 Remove a portion of the array and replace it with something else.
 
 - `$array` is the input array.
-- `$offset` is the starting offset.
-- `$length` is the length of the slice.
+- `$offset` is a number representing the starting offset.
+- `$length` is a number representing the length of the slice.
 - `$replacement` is the element(s) to insert in the array.
 
 ```php
