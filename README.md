@@ -20,7 +20,7 @@ composer install fyre/array
 In PHP:
 
 ```php
-use Fyre\Arr;
+use Fyre\Utility\Arr;
 ```
 
 
