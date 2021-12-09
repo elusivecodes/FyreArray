@@ -14,7 +14,7 @@
 **Using Composer**
 
 ```
-composer install fyre/array
+composer require fyre/array
 ```
 
 In PHP:
