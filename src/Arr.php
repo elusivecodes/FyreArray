@@ -22,6 +22,7 @@ use function
     array_fill,
     array_filter,
     array_intersect,
+    array_is_list,
     array_key_exists,
     array_keys,
     array_map,
@@ -413,16 +414,7 @@ abstract class Arr
      */
     public static function isList(array $array): bool
     {
-        $nextKey = 0;
-        foreach ($array AS $key => $value) {
-            if ($key !== $nextKey) {
-                return false;
-            }
-
-            $nextKey++;
-        }
-
-        return true;
+        return array_is_list($array);
     }
 
     /**
