@@ -505,7 +505,7 @@ $slice = Arr::slice($array, $offset, $length, $preserveKeys);
 Sort an array.
 
 - `$array` is the input array.
-- `$sort` is a number representing the sorting flag or a comparison callback, and will default to *Arr::SORT_NATURAL*.
+- `$sort` is a number representing the sorting flag or a comparison *Closure*, and will default to *Arr::SORT_NATURAL*.
 
 ```php
 $sorted = Arr::sort($array, $sort);
