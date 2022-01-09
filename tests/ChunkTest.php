@@ -11,7 +11,7 @@ trait ChunkTest
 
     public function testChunkWithSize(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 [1, 2],
                 [3, 4]
@@ -22,7 +22,7 @@ trait ChunkTest
 
     public function testChunkWithPreserveKeys(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 [
                     0 => 1,
@@ -39,7 +39,7 @@ trait ChunkTest
 
     public function testChunkWithEmptyArray(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [],
             Arr::chunk([], 2)
         );

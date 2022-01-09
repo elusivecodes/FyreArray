@@ -11,7 +11,7 @@ trait CombineTest
 
     public function testCombine(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ['a' => 1, 'b' => 2],
             Arr::combine(['a', 'b'], [1, 2])
         );

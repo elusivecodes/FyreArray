@@ -13,7 +13,7 @@ trait PushTest
     {
         $array = [1, 2, 3];
         Arr::push($array, 4);
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2, 3, 4],
             $array
         );
@@ -23,7 +23,7 @@ trait PushTest
     {
         $array = [1, 2, 3];
         Arr::push($array, 4, 5, 6);
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2, 3, 4, 5, 6],
             $array
         );

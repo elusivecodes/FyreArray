@@ -11,7 +11,7 @@ trait DivideTest
 
     public function testDivide(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 ['a', 'b', 'c'],
                 [1, 2, 3]

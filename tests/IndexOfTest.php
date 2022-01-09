@@ -11,7 +11,7 @@ trait IndexOfTest
 
     public function testIndexOf(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             2,
             Arr::indexOf(['a', 'b', 'c', 'd', 'c', 'c', 'e'], 'c')
         );
@@ -19,7 +19,7 @@ trait IndexOfTest
 
     public function testIndexOfAssoc(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'c',
             Arr::indexOf(['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 3, 'f' => 3, 'g' => 5], '3')
         );
@@ -27,7 +27,7 @@ trait IndexOfTest
 
     public function testIndexOfWithStrict(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             2,
             Arr::indexOf([1, 2, '1', 3, '1', '1', 4, 1], '1', true)
         );

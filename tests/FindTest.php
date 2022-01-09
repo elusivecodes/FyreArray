@@ -11,7 +11,7 @@ trait FindTest
 
     public function testFindWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             3,
             Arr::find([1, 2, 3, 4, 5], fn($value) => $value > 2)
         );
@@ -19,15 +19,14 @@ trait FindTest
 
     public function testFindWithoutMatch(): void
     {
-        $this->assertEquals(
-            null,
+        $this->assertNull(
             Arr::find([1, 2, 3, 4, 5], fn($value) => $value > 5)
         );
     }
 
     public function testFindWithDefault(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             6,
             Arr::find([1, 2, 3, 4, 5], fn($value) => $value > 5, 6),
         );

@@ -11,7 +11,7 @@ trait ReverseTest
 
     public function testReverse(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [3, 2, 1],
             Arr::reverse([1, 2, 3])
         );

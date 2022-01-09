@@ -11,7 +11,7 @@ trait SetDotTest
 
     public function testSetDot(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'a' => 1,
                 'b' => [
@@ -25,7 +25,7 @@ trait SetDotTest
 
     public function testSetDotOverwrites(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'a' => 1,
                 'b' => [
@@ -39,7 +39,7 @@ trait SetDotTest
 
     public function testSetDotWithOverwrite(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'a' => 1,
                 'b' => [

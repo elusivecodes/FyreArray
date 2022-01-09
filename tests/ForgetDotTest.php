@@ -11,7 +11,7 @@ trait ForgetDotTest
 
     public function testForgetDot(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'a' => 1,
                 'b' => [
@@ -24,7 +24,7 @@ trait ForgetDotTest
 
     public function testForgetDotMissing(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'a' => 1,
                 'b' => [

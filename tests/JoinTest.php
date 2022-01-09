@@ -11,7 +11,7 @@ trait JoinTest
 
     public function testJoin(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'a,b,c',
             Arr::join(['a', 'b', 'c'])
         );
@@ -19,7 +19,7 @@ trait JoinTest
 
     public function testJoinWithSeparator(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'a-b-c',
             Arr::join(['a', 'b', 'c'], '-')
         );

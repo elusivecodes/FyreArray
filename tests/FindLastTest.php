@@ -11,7 +11,7 @@ trait FindLastTest
 
     public function testFindLastWithMatch(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             2,
             Arr::findLast([1, 2, 3, 4, 5], fn($value) => $value < 3)
         );
@@ -19,15 +19,14 @@ trait FindLastTest
 
     public function testFindLastWithoutMatch(): void
     {
-        $this->assertEquals(
-            null,
+        $this->assertNull(
             Arr::findLast([1, 2, 3, 4, 5], fn($value) => $value < 1)
         );
     }
 
     public function testFindLastWithDefault(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             0,
             Arr::findLast([1, 2, 3, 4, 5], fn($value) => $value < 1, 0),
         );

@@ -12,8 +12,9 @@ trait RandomValueTest
     public function testRandomValue(): void
     {
         $array = [1, 2, 3];
-        $this->assertTrue(
-            Arr::includes($array, Arr::randomValue($array))
+        $this->assertContains(
+            Arr::randomValue($array),
+            $array
         );
     }
 
@@ -25,9 +26,9 @@ trait RandomValueTest
             $test[] = Arr::randomValue($array);
         }
         $test = Arr::unique($test);
-        $this->assertEquals(
+        $this->assertCount(
             3,
-            Arr::count($test)
+            $test
         );
     }
 

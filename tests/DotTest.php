@@ -11,7 +11,7 @@ trait DotTest
 
     public function testDot(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'a' => 1,
                 'b.c' => 2,
@@ -24,7 +24,7 @@ trait DotTest
 
     public function testDotNumeric(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 'a.0' => 1,
                 'a.1' => 2,

@@ -11,7 +11,7 @@ trait FilterTest
 
     public function testFilter(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [1 => 1, 3 => 2, 4 =>3],
             Arr::filter([0, 1, '', 2, 3])
         );
@@ -19,7 +19,7 @@ trait FilterTest
 
     public function testFilterWithCallback(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [2 => 3, 3 => 4, 4 => 5],
             Arr::filter([1, 2, 3, 4, 5], fn($value) => $value > 2)
         );
@@ -27,7 +27,7 @@ trait FilterTest
 
     public function testFilterWithMode(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [3 => 4, 4 => 5],
             Arr::filter([1, 2, 3, 4, 5], fn($key) => $key > 2, Arr::FILTER_KEY)
         );

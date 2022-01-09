@@ -11,7 +11,7 @@ trait ValuesTest
 
     public function testValues(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2, 3],
             Arr::values(['a' => 1, 'b' => 2, 'c' => 3])
         );

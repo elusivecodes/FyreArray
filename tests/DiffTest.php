@@ -11,7 +11,7 @@ trait DiffTest
 
     public function testDiff(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [1 => 2, 3 => 4],
             Arr::diff([1, 2, 3, 4, 5], [1, 3, 5])
         );
@@ -19,7 +19,7 @@ trait DiffTest
 
     public function testDiffAssoc(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ['b' => 2],
             Arr::diff(['a' => 1, 'b' => 2], ['c' => 1, 'd' => 3])
         );
@@ -27,7 +27,7 @@ trait DiffTest
 
     public function testDiffNArgs(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [1 => 2, 4 => 5],
             Arr::diff([1, 2, 3, 4, 5], [1, 3], [1, 4])
         );

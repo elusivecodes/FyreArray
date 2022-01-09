@@ -11,7 +11,7 @@ trait ReduceTest
 
     public function testReduce(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             6,
             Arr::reduce([1, 2, 3], fn($acc, $value) => $acc + $value, 0)
         );

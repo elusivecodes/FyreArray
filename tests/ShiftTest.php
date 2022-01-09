@@ -12,7 +12,7 @@ trait ShiftTest
     public function testShift(): void
     {
         $array = [1, 2, 3];
-        $this->assertEquals(
+        $this->assertSame(
             1,
             Arr::shift($array)
         );
@@ -22,7 +22,7 @@ trait ShiftTest
     {
         $array = [1, 2, 3];
         Arr::shift($array);
-        $this->assertEquals(
+        $this->assertSame(
             [2, 3],
             $array
         );
@@ -31,8 +31,7 @@ trait ShiftTest
     public function testShiftWithEmptyArray(): void
     {
         $array = [];
-        $this->assertEquals(
-            null,
+        $this->assertNull(
             Arr::shift($array)
         );
     }

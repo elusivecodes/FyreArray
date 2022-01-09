@@ -25,8 +25,9 @@ trait ShuffleTest
 
         $arrays = Arr::unique($arrays);
 
-        $this->assertTrue(
-            Arr::count($arrays) > 100
+        $this->assertGreaterThan(
+            100,
+            Arr::count($arrays)
         );
     }
 

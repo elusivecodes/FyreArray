@@ -11,7 +11,7 @@ trait ExceptTest
 
     public function testExcept(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ['b' => 2, 'd' => 4],
             Arr::except(['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4], ['a', 'c'])
         );

@@ -11,7 +11,7 @@ trait IntersectTest
 
     public function testIntersect(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [0 => 1, 2 => 3, 4 => 5],
             Arr::intersect([1, 2, 3, 4, 5], [1, 3, 5])
         );
@@ -19,7 +19,7 @@ trait IntersectTest
 
     public function testIntersectNArgs(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [0 => 1, 2 => 3],
             Arr::intersect([1, 2, 3, 4, 5], [1, 3, 5], [1, 3, 4])
         );

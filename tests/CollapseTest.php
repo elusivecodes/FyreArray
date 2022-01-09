@@ -11,7 +11,7 @@ trait CollapseTest
 
     public function testCollapse(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [3, 4],
             Arr::collapse([1, 2], [3, 4])
         );
@@ -19,7 +19,7 @@ trait CollapseTest
 
     public function testCollapseAssoc(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4],
             Arr::collapse(['a' => 1, 'b' => 2], ['c' => 3, 'd' => 4])
         );
@@ -27,7 +27,7 @@ trait CollapseTest
 
     public function testCollapseDeep(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ['a' => ['b' => 2, 'c' => 4, 'd' => 5]],
             Arr::collapse(['a' => ['b' => 2, 'c' => 3]], ['a' => ['c' => 4, 'd' => 5]])
         );
@@ -35,7 +35,7 @@ trait CollapseTest
 
     public function testCollapseNArgs(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ['a' => 1, 'b' => 2, 'c' => 3],
             Arr::collapse(['a' => 1], ['b' => 2], ['c' => 3])
         );

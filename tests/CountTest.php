@@ -11,7 +11,7 @@ trait CountTest
 
     public function testCount(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             2,
             Arr::count(['a', 'b' => ['c']])
         );
@@ -19,7 +19,7 @@ trait CountTest
 
     public function testCountRecursive(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             3,
             Arr::count(['a', 'b' => ['c']], Arr::COUNT_RECURSIVE)
         );

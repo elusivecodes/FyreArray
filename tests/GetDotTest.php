@@ -11,7 +11,7 @@ trait GetDotTest
 
     public function testGetDot(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             3,
             Arr::getDot(['a' => 1, 'b' => ['c' => 2, 'd' => 3]], 'b.d')
         );
@@ -19,7 +19,7 @@ trait GetDotTest
 
     public function testGetDotWithDefault(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             3,
             Arr::getDot(['a' => 1, 'b' => ['c' => 2]], 'b.d', 3)
         );

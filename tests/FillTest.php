@@ -11,7 +11,7 @@ trait FillTest
 
     public function testFill(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ['a', 'a', 'a'],
             Arr::fill(3, 'a')
         );

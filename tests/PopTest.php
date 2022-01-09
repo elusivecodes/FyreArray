@@ -12,7 +12,7 @@ trait PopTest
     public function testPop(): void
     {
         $array = [1, 2, 3];
-        $this->assertEquals(
+        $this->assertSame(
             3,
             Arr::pop($array)
         );
@@ -22,7 +22,7 @@ trait PopTest
     {
         $array = [1, 2, 3];
         Arr::pop($array);
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2],
             $array
         );
@@ -31,8 +31,7 @@ trait PopTest
     public function testPopWithEmptyArray(): void
     {
         $array = [];
-        $this->assertEquals(
-            null,
+        $this->assertNull(
             Arr::pop($array)
         );
     }

@@ -11,7 +11,7 @@ trait MapTest
 
     public function testMap(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [2, 4, 6],
             Arr::map([1, 2, 3], fn($value) => $value * 2)
         );
@@ -19,7 +19,7 @@ trait MapTest
 
     public function testMapWithKey(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [1, 4, 6],
             Arr::map([1, 2, 3], fn($value, $key) => $key > 0 ? $value * 2 : $value)
         );

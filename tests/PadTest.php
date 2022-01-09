@@ -11,7 +11,7 @@ trait PadTest
 
     public function testPad(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [1, 0, 0],
             Arr::pad([1], 3, 0)
         );

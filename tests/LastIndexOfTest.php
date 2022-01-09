@@ -11,7 +11,7 @@ trait LastIndexOfTest
 
     public function testLastIndexOf(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             5,
             Arr::lastIndexOf(['a', 'b', 'c', 'd', 'c', 'c', 'e'], 'c')
         );
@@ -19,7 +19,7 @@ trait LastIndexOfTest
 
     public function testLastIndexOfAssoc(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             'f',
             Arr::lastIndexOf(['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 3, 'f' => 3, 'g' => 5], '3')
         );
@@ -27,7 +27,7 @@ trait LastIndexOfTest
 
     public function testLastIndexOfWithStrict(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             5,
             Arr::lastIndexOf([1, 2, '1', 3, '1', '1', 4, 1], '1', true)
         );

@@ -13,7 +13,7 @@ trait SpliceTest
     {
         $array = [1, 2, 3, 4, 5, 6];
         Arr::splice($array, 2);
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2],
             $array
         );
@@ -23,7 +23,7 @@ trait SpliceTest
     {
         $array = [1, 2, 3, 4, 5, 6];
         Arr::splice($array, -2);
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2, 3, 4],
             $array
         );
@@ -33,7 +33,7 @@ trait SpliceTest
     {
         $array = [1, 2, 3, 4, 5, 6];
         Arr::splice($array, 2, 1);
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2, 4, 5, 6],
             $array
         );
@@ -43,7 +43,7 @@ trait SpliceTest
     {
         $array = [1, 2, 3, 4, 5, 6];
         Arr::splice($array, 2, -1);
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2, 6],
             $array
         );
@@ -53,7 +53,7 @@ trait SpliceTest
     {
         $array = [1, 2, 3, 4, 5, 6];
         Arr::splice($array, 2, 1, 0);
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2, 0, 4, 5, 6],
             $array
         );

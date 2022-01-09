@@ -11,7 +11,7 @@ trait MergeTest
 
     public function testMerge(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2, 3, 4],
             Arr::merge([1, 2], [3, 4])
         );
@@ -19,7 +19,7 @@ trait MergeTest
 
     public function testMergeAssoc(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             ['a' => 1, 'b' => 3, 'c' => 4],
             Arr::merge(['a' => 1, 'b' => 2], ['b' => 3, 'c' => 4])
         );
@@ -27,7 +27,7 @@ trait MergeTest
 
     public function testMergeNArgs(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [1, 2, 3, 4, 5, 6],
             Arr::merge([1, 2], [3, 4], [5, 6])
         );

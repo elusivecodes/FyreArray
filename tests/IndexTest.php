@@ -11,7 +11,7 @@ trait IndexTest
 
     public function testIndex(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
                 1 => [
                     'a' => 1,
