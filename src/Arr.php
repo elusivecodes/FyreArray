@@ -200,7 +200,7 @@ abstract class Arr
      * @param mixed $value The value to insert.
      * @return array An array filled with values.
      */
-    public static function fill(int $amount, $value): array
+    public static function fill(int $amount, mixed $value): array
     {
         return array_fill(0, $amount, $value);
     }
@@ -224,7 +224,7 @@ abstract class Arr
      * @param mixed $default The default value to return.
      * @return mixed The first value satisfying the callback, or the default value.
      */
-    public static function find(array $array, callable $callback, $default = null)
+    public static function find(array $array, callable $callback, mixed $default = null): mixed
     {
         foreach ($array AS $key => $value) {
             if ($callback($value, $key)) {
@@ -242,7 +242,7 @@ abstract class Arr
      * @param mixed $default The default value to return.
      * @return mixed The last value satisfying the callback, or the default value.
      */
-    public static function findLast(array $array, callable $callback, $default = null)
+    public static function findLast(array $array, callable $callback, mixed $default = null): mixed
     {
         return static::find(
             static::reverse($array, true),
@@ -307,7 +307,7 @@ abstract class Arr
      * @param mixed $default The default value to return.
      * @return mixed The value.
      */
-    public static function getDot(array $array, string $key, $default = null)
+    public static function getDot(array $array, string $key, mixed $default = null): mixed
     {
         $result = $array;
 
@@ -358,7 +358,7 @@ abstract class Arr
      * @param mixed The value to check for.
      * @return bool Whether the given value exists in the array.
      */
-    public static function includes(array $array, $value): bool
+    public static function includes(array $array, mixed $value): bool
     {
         return in_array($value, $array);
     }
@@ -384,7 +384,7 @@ abstract class Arr
      * @param bool $strict Whether to perform a strict search.
      * @return string|int|false The first key for a matching value, otherwise FALSE.
      */
-    public static function indexOf(array $array, $value, bool $strict = false): string|int|false
+    public static function indexOf(array $array, mixed $value, bool $strict = false): string|int|false
     {
         return array_search($value, $array, $strict);
     }
@@ -405,14 +405,14 @@ abstract class Arr
      * @param mixed $value The value to test.
      * @return bool TRUE if the value is an array, otherwise FALSE.
      */
-    public static function isArray($value): bool
+    public static function isArray(mixed $value): bool
     {
         return is_array($value);
     }
 
     /**
      * Determine if an array has consecutive keys starting from 0.
-     * @param mixed $array The array to test.
+     * @param array $array The array to test.
      * @return bool TRUE if the value has consecutive keys starting from 0, otherwise FALSE.
      */
     public static function isList(array $array): bool
@@ -504,7 +504,7 @@ abstract class Arr
      * @param mixed $value The value to pad with.
      * @return array The padded array.
      */
-    public static function pad(array $array, int $size, $value): array
+    public static function pad(array $array, int $size, mixed $value): array
     {
         return array_pad($array, $size, $value);
     }
@@ -531,7 +531,7 @@ abstract class Arr
      * @param array $array The input array.
      * @return mixed The last value of the array.
      */
-    public static function pop(array &$array)
+    public static function pop(array &$array): mixed
     {
         return array_pop($array);
     }
@@ -541,7 +541,7 @@ abstract class Arr
      * @param array $array The input array.
      * @param mixed ...$values The values to push.
      */
-    public static function push(array &$array, ...$values): void
+    public static function push(array &$array, mixed ...$values): void
     {
         array_push($array, ...$values);
     }
@@ -551,7 +551,7 @@ abstract class Arr
      * @param array $array The input array.
      * @return mixed A random value from the array.
      */
-    public static function randomValue(array $array)
+    public static function randomValue(array $array): mixed
     {
         if ($array === []) {
             return null;
@@ -580,7 +580,7 @@ abstract class Arr
      * @param mixed $initial The initial value.
      * @return mixed The final value.
      */
-    public static function reduce(array $array, callable $callback, $initial = null)
+    public static function reduce(array $array, callable $callback, mixed $initial = null): mixed
     {
         return array_reduce($array, $callback, $initial);
     }
@@ -604,7 +604,7 @@ abstract class Arr
      * @param bool $overwrite Whether to overwrite previous values.
      * @return array The modified array.
      */
-    public static function setDot(array $array, string $key, $value, bool $overwrite = true): array
+    public static function setDot(array $array, string $key, mixed $value, bool $overwrite = true): array
     {
         $keys = explode('.', $key);
 
@@ -644,7 +644,7 @@ abstract class Arr
      * @param array $array The input array.
      * @return mixed The first value of the array.
      */
-    public static function shift(array &$array)
+    public static function shift(array &$array): mixed
     {
         return array_shift($array);
     }
@@ -698,7 +698,7 @@ abstract class Arr
      * @param int|null $length The length to remove.
      * @param mixed $replacement The element(s) to insert in the array.
      */
-    public static function splice(array &$array, int $offset, int|null $length = null, $replacement = []): void
+    public static function splice(array &$array, int $offset, int|null $length = null, mixed $replacement = []): void
     {
         array_splice($array, $offset, $length, $replacement);
     }
@@ -719,7 +719,7 @@ abstract class Arr
      * @param array $array The input array.
      * @param mixed ...$values The values to prepend.
      */
-    public static function unshift(array &$array, ...$values)
+    public static function unshift(array &$array, mixed ...$values)
     {
         return array_unshift($array, ...$values);
     }
@@ -739,7 +739,7 @@ abstract class Arr
      * @param mixed $value The value to wrap.
      * @return array The wrapped value.
      */
-    public static function wrap($value): array
+    public static function wrap(mixed $value): array
     {
         if (static::isArray($value)) {
             return $value;
