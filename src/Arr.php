@@ -189,7 +189,7 @@ abstract class Arr
     {
         return static::filter(
             $array,
-            fn($key) => !static::includes($keys, $key),
+            fn(mixed $key): bool => !static::includes($keys, $key),
             static::FILTER_KEY
         );
     }
@@ -261,7 +261,7 @@ abstract class Arr
     {
         return static::reduce(
             $array,
-            fn($a, $b) => static::merge(
+            fn(mixed $a, mixed $b): mixed => static::merge(
                 $a,
                 static::isArray($b) ?
                     (
@@ -492,7 +492,7 @@ abstract class Arr
     {
         return static::filter(
             $array,
-            fn($key) => static::includes($keys, $key),
+            fn(mixed $key): bool => static::includes($keys, $key),
             static::FILTER_KEY
         );
     }
