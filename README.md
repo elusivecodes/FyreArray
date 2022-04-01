@@ -207,7 +207,7 @@ Retrieve a value using "dot" notation.
 - `$defaultValue` is the default value to return, and will default to *null*.
 
 ```php
-$forgetDot = Arr::forgetDot($array, $key, $defaultValue);
+$getDot = Arr::getDot($array, $key, $defaultValue);
 ```
 
 **Has Dot**
@@ -218,7 +218,7 @@ Check if a given element exists in an array using "dot" notation.
 - `$key` is the key to check for.
 
 ```php
-$hasKey = Arr::hasKey($array, $key);
+$hasDot = Arr::hasDot($array, $key);
 ```
 
 **Has Key**
