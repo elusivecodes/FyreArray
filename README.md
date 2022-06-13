@@ -300,13 +300,13 @@ $isList = Arr::isList($array);
 
 **Join**
 
-Join an array elements using a specified seperator.
+Join an array elements using a specified separator.
 
 - `$array` is the input array.
-- `$seperator` is a string representing the seperator to join with, and will default to *","*
+- `$separator` is a string representing the separator to join with, and will default to *","*
 
 ```php
-$joined = Arr::join($array, $seperator);
+$joined = Arr::join($array, $separator);
 ```
 
 **Keys**

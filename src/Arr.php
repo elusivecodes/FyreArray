@@ -421,14 +421,14 @@ abstract class Arr
     }
 
     /**
-     * Join an array elements using a specified seperator.
+     * Join an array elements using a specified separator.
      * @param array $array The input array.
-     * @param string $seperator The seperator to join with.
+     * @param string $separator The separator to join with.
      * @return string The joined string.
      */
-    public static function join(array $array, string $seperator = ','): string
+    public static function join(array $array, string $separator = ','): string
     {
-        return implode($seperator, $array);
+        return implode($separator, $array);
     }
 
     /**
