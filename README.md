@@ -1,6 +1,6 @@
 # FyreArray
 
-**FyreArray** is a free, array manipulation library for *PHP*.
+**FyreArray** is a free, open-source array manipulation library for *PHP*.
 
 
 ## Table Of Contents

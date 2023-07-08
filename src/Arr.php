@@ -3,56 +3,53 @@ declare(strict_types=1);
 
 namespace Fyre\Utility;
 
-use
-    Closure;
+use Closure;
 
-use const
-    ARRAY_FILTER_USE_BOTH,
-    ARRAY_FILTER_USE_KEY,
-    COUNT_NORMAL,
-    COUNT_RECURSIVE,
-    SORT_LOCALE_STRING,
-    SORT_NATURAL,
-    SORT_NUMERIC,
-    SORT_REGULAR,
-    SORT_STRING;
+use const ARRAY_FILTER_USE_BOTH;
+use const ARRAY_FILTER_USE_KEY;
+use const COUNT_NORMAL;
+use const COUNT_RECURSIVE;
+use const SORT_LOCALE_STRING;
+use const SORT_NATURAL;
+use const SORT_NUMERIC;
+use const SORT_REGULAR;
+use const SORT_STRING;
 
-use function
-    array_chunk,
-    array_column,
-    array_combine,
-    array_diff,
-    array_fill,
-    array_filter,
-    array_intersect,
-    array_is_list,
-    array_key_exists,
-    array_keys,
-    array_map,
-    array_merge,
-    array_pad,
-    array_pop,
-    array_push,
-    array_rand,
-    array_reduce,
-    array_replace_recursive,
-    array_reverse,
-    array_search,
-    array_shift,
-    array_slice,
-    array_splice,
-    array_unique,
-    array_unshift,
-    array_values,
-    count,
-    implode,
-    in_array,
-    is_array,
-    is_int,
-    range,
-    shuffle,
-    sort,
-    usort;
+use function array_chunk;
+use function array_column;
+use function array_combine;
+use function array_diff;
+use function array_fill;
+use function array_filter;
+use function array_intersect;
+use function array_is_list;
+use function array_key_exists;
+use function array_keys;
+use function array_map;
+use function array_merge;
+use function array_pad;
+use function array_pop;
+use function array_push;
+use function array_rand;
+use function array_reduce;
+use function array_replace_recursive;
+use function array_reverse;
+use function array_search;
+use function array_shift;
+use function array_slice;
+use function array_splice;
+use function array_unique;
+use function array_unshift;
+use function array_values;
+use function count;
+use function implode;
+use function in_array;
+use function is_array;
+use function is_int;
+use function range;
+use function shuffle;
+use function sort;
+use function usort;
 
 /**
  * Arr
@@ -99,10 +96,10 @@ abstract class Arr
     /**
      * Return the values from a single column in the input array.
      * @param array $array The input array.
-     * @param string|int|null $key The column to pull values from.
+     * @param string|int $key The column to pull values from.
      * @return array An array of column values.
      */
-    public static function column(array $arrays, string|int|null $key): array
+    public static function column(array $arrays, string|int $key): array
     {
         return array_column($arrays, $key);
     }
@@ -121,12 +118,12 @@ abstract class Arr
     /**
      * Count all elements in an array.
      * @param array $array The input array.
-     * @param int|null $mode The counting mode.
+     * @param int $mode The counting mode.
      * @return int The number of elements in the array.
      */
-    public static function count(array $array, int|null $mode = null): int
+    public static function count(array $array, int $mode = self::COUNT_NORMAL): int
     {
-        return count($array, $mode ?? static::COUNT_NORMAL);
+        return count($array, $mode);
     }
 
     /**
@@ -209,12 +206,12 @@ abstract class Arr
      * Filter elements of an array using a callback function.
      * @param array $array The input array.
      * @param callable|null $callback The callback function to use.
-     * @param int|null $mode Flag determining arguments sent to the callback.
+     * @param int $mode Flag determining arguments sent to the callback.
      * @return array The filtered array.
      */
-    public static function filter(array $array, callable|null $callback = null, int|null $mode = null): array
+    public static function filter(array $array, callable|null $callback = null, int $mode = self::FILTER_BOTH): array
     {
-        return array_filter($array, $callback, $mode ?? static::FILTER_BOTH);
+        return array_filter($array, $callback, $mode);
     }
 
     /**
@@ -366,15 +363,12 @@ abstract class Arr
     /**
      * Index a multi-dimensional array using a given key value.
      * @param array $array The input array.
-     * @param string|int|null $key The column to pull key values from.
+     * @param string|int $key The column to pull key values from.
      * @return array The indexed array.
      */
-    public static function index(array $array, string|int|null $key): array
+    public static function index(array $array, string|int $key): array
     {
-        return static::combine(
-            static::column($array, $key),
-            $array
-        );
+        return array_column($array, null, $key);
     }
 
     /**
@@ -677,15 +671,15 @@ abstract class Arr
     /**
      * Sort an array.
      * @param array $array The input array.
-     * @param Closure|int|null $sort The sorting flag, or a comparison Closure.
+     * @param Closure|int $sort The sorting flag, or a comparison Closure.
      * @return array The sorted array.
      */
-    public static function sort(array $array, Closure|int|null $sort = null): array
+    public static function sort(array $array, Closure|int $sort = self::SORT_NATURAL): array
     {
         if ($sort instanceof Closure) {
             usort($array, $sort);
         } else {
-            sort($array, $sort ?? static::SORT_NATURAL);
+            sort($array, $sort);
         }
 
         return $array;
@@ -706,12 +700,12 @@ abstract class Arr
     /**
      * Remove duplicate values from an array.
      * @param array $array The input array.
-     * @param int|null $flags The comparison flag.
+     * @param int $flags The comparison flag.
      * @return array The filtered array.
      */
-    public static function unique(array $array, int|null $flags = null): array
+    public static function unique(array $array, int $flags = self::SORT_REGULAR): array
     {
-        return array_unique($array, $flags ?? static::SORT_REGULAR);
+        return array_unique($array, $flags);
     }
 
     /**
