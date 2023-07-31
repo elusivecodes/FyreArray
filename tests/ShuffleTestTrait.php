@@ -5,8 +5,6 @@ namespace Tests;
 
 use Fyre\Utility\Arr;
 
-use function sort;
-
 trait ShuffleTestTrait
 {
 
