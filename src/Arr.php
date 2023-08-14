@@ -534,10 +534,11 @@ abstract class Arr
      * Push one or more elements onto the end of array.
      * @param array $array The input array.
      * @param mixed ...$values The values to push.
+     * @return int The new number of elements in the array.
      */
-    public static function push(array &$array, mixed ...$values): void
+    public static function push(array &$array, mixed ...$values): int
     {
-        array_push($array, ...$values);
+        return array_push($array, ...$values);
     }
 
     /**
@@ -691,10 +692,11 @@ abstract class Arr
      * @param int $offset The starting offset.
      * @param int|null $length The length to remove.
      * @param mixed $replacement The element(s) to insert in the array.
+     * @return array The spliced elements.
      */
-    public static function splice(array &$array, int $offset, int|null $length = null, mixed $replacement = []): void
+    public static function splice(array &$array, int $offset, int|null $length = null, mixed $replacement = []): array
     {
-        array_splice($array, $offset, $length, $replacement);
+        return array_splice($array, $offset, $length, $replacement);
     }
 
     /**
@@ -712,8 +714,9 @@ abstract class Arr
      * Prepend one or more elements to the beginning of an array.
      * @param array $array The input array.
      * @param mixed ...$values The values to prepend.
+     * @return int The new number of elements in the array.
      */
-    public static function unshift(array &$array, mixed ...$values)
+    public static function unshift(array &$array, mixed ...$values): int
     {
         return array_unshift($array, ...$values);
     }

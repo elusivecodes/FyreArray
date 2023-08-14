@@ -407,7 +407,7 @@ Push one or more elements onto the end of array.
 All additional arguments supplied will be pushed onto the array.
 
 ```php
-Arr::push($array, ...$values);
+$newCount = Arr::push($array, ...$values);
 ```
 
 **Random Value**
@@ -521,7 +521,7 @@ Remove a portion of the array and replace it with something else.
 - `$replacement` is the element(s) to insert in the array.
 
 ```php
-Arr::splice($array, $offset, $length, $replacement);
+$spliced = Arr::splice($array, $offset, $length, $replacement);
 ```
 
 **Unique**
@@ -543,7 +543,7 @@ Prepend one or more elements to the beginning of an array.
 All additional arguments supplied will be prepended to the array.
 
 ```php
-Arr::unshift($array, ...$values);
+$newCount = Arr::unshift($array, ...$values);
 ```
 
 **Values**
