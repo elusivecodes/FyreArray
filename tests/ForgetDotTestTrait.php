@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait ForgetDotTestTrait
 {
-
     public function testForgetDot(): void
     {
         $this->assertSame(
@@ -33,5 +32,4 @@ trait ForgetDotTestTrait
             Arr::forgetDot(['a' => 1, 'b' => ['c' => 2]], 'b.d')
         );
     }
-
 }

@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait CombineTestTrait
 {
-
     public function testCombine(): void
     {
         $this->assertSame(
@@ -15,5 +14,4 @@ trait CombineTestTrait
             Arr::combine(['a', 'b'], [1, 2])
         );
     }
-
 }

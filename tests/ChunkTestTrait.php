@@ -7,15 +7,11 @@ use Fyre\Utility\Arr;
 
 trait ChunkTestTrait
 {
-
-    public function testChunkWithSize(): void
+    public function testChunkWithEmptyArray(): void
     {
         $this->assertSame(
-            [
-                [1, 2],
-                [3, 4]
-            ],
-            Arr::chunk([1, 2, 3, 4], 2)
+            [],
+            Arr::chunk([], 2)
         );
     }
 
@@ -36,12 +32,14 @@ trait ChunkTestTrait
         );
     }
 
-    public function testChunkWithEmptyArray(): void
+    public function testChunkWithSize(): void
     {
         $this->assertSame(
-            [],
-            Arr::chunk([], 2)
+            [
+                [1, 2],
+                [3, 4]
+            ],
+            Arr::chunk([1, 2, 3, 4], 2)
         );
     }
-
 }

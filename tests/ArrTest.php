@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 final class ArrTest extends TestCase
 {
-
     use ChunkTestTrait;
     use CollapseTestTrait;
     use ColumnTestTrait;
@@ -27,8 +26,8 @@ final class ArrTest extends TestCase
     use HasDotTestTrait;
     use HasKeyTestTrait;
     use IncludesTestTrait;
-    use IndexTestTrait;
     use IndexOfTestTrait;
+    use IndexTestTrait;
     use IntersectTestTrait;
     use IsArrayTestTrait;
     use IsListTestTrait;

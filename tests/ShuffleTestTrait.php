@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait ShuffleTestTrait
 {
-
     public function testShuffleIsRandom(): void
     {
         $array = Arr::range(1, 10);
@@ -27,5 +26,4 @@ trait ShuffleTestTrait
             Arr::count($arrays)
         );
     }
-
 }

@@ -5,16 +5,6 @@ namespace Fyre\Utility;
 
 use Closure;
 
-use const ARRAY_FILTER_USE_BOTH;
-use const ARRAY_FILTER_USE_KEY;
-use const COUNT_NORMAL;
-use const COUNT_RECURSIVE;
-use const SORT_LOCALE_STRING;
-use const SORT_NATURAL;
-use const SORT_NUMERIC;
-use const SORT_REGULAR;
-use const SORT_STRING;
-
 use function array_chunk;
 use function array_column;
 use function array_combine;
@@ -50,12 +40,21 @@ use function shuffle;
 use function sort;
 use function usort;
 
+use const ARRAY_FILTER_USE_BOTH;
+use const ARRAY_FILTER_USE_KEY;
+use const COUNT_NORMAL;
+use const COUNT_RECURSIVE;
+use const SORT_LOCALE_STRING;
+use const SORT_NATURAL;
+use const SORT_NUMERIC;
+use const SORT_REGULAR;
+use const SORT_STRING;
+
 /**
  * Arr
  */
 abstract class Arr
 {
-
     public const COUNT_NORMAL = COUNT_NORMAL;
     public const COUNT_RECURSIVE = COUNT_RECURSIVE;
 
@@ -94,11 +93,11 @@ abstract class Arr
 
     /**
      * Return the values from a single column in the input array.
-     * @param array $array The input array.
      * @param string|int $key The column to pull values from.
+     * @param array $array The input array.
      * @return array An array of column values.
      */
-    public static function column(array $arrays, string|int $key): array
+    public static function column(array $arrays, int|string $key): array
     {
         return array_column($arrays, $key);
     }
@@ -159,7 +158,7 @@ abstract class Arr
     {
         $result = [];
 
-        foreach ($array AS $key => $value) {
+        foreach ($array as $key => $value) {
             if ($prefix) {
                 $key = $prefix.'.'.$key;
             }
@@ -222,7 +221,7 @@ abstract class Arr
      */
     public static function find(array $array, callable $callback, mixed $default = null): mixed
     {
-        foreach ($array AS $key => $value) {
+        foreach ($array as $key => $value) {
             if ($callback($value, $key)) {
                 return $value;
             }
@@ -287,7 +286,7 @@ abstract class Arr
             if (!static::isArray($pointer) || !static::hasKey($pointer, $key)) {
                 return $array;
             }
-    
+
             $pointer = &$pointer[$key];
         }
 
@@ -307,7 +306,7 @@ abstract class Arr
     {
         $result = $array;
 
-        foreach (explode('.', $key) AS $key) {
+        foreach (explode('.', $key) as $key) {
             if (!static::isArray($result) || !static::hasKey($result, $key)) {
                 return $default;
             }
@@ -326,12 +325,12 @@ abstract class Arr
      */
     public static function hasDot(array $array, string $key): bool
     {
-        foreach (explode('.', $key) AS $key) {
+        foreach (explode('.', $key) as $key) {
             if (!static::isArray($array) || !static::hasKey($array, $key)) {
                 return false;
             }
 
-            $array =& $array[$key];
+            $array = & $array[$key];
         }
 
         return true;
@@ -343,7 +342,7 @@ abstract class Arr
      * @param string|int|float The key to check for.
      * @return bool Whether the given key exists in the array.
      */
-    public static function hasKey(array $array, string|int|float $key): bool
+    public static function hasKey(array $array, float|int|string $key): bool
     {
         return array_key_exists($key, $array);
     }
@@ -365,7 +364,7 @@ abstract class Arr
      * @param string|int $key The column to pull key values from.
      * @return array The indexed array.
      */
-    public static function index(array $array, string|int $key): array
+    public static function index(array $array, int|string $key): array
     {
         return array_column($array, null, $key);
     }
@@ -377,7 +376,7 @@ abstract class Arr
      * @param bool $strict Whether to perform a strict search.
      * @return string|int|false The first key for a matching value, otherwise FALSE.
      */
-    public static function indexOf(array $array, mixed $value, bool $strict = false): string|int|false
+    public static function indexOf(array $array, mixed $value, bool $strict = false): false|int|string
     {
         return array_search($value, $array, $strict);
     }
@@ -441,7 +440,7 @@ abstract class Arr
      * @param bool $strict Whether to perform a strict search.
      * @return string|int|false The last key for a matching value, otherwise FALSE.
      */
-    public static function lastIndexOf(array $array, $value, bool $strict = false): string|int|false
+    public static function lastIndexOf(array $array, $value, bool $strict = false): false|int|string
     {
         return static::indexOf(
             static::reverse($array, true),
@@ -512,7 +511,7 @@ abstract class Arr
     {
         $result = [];
 
-        foreach ($arrays AS $array) {
+        foreach ($arrays as $array) {
             $result[] = static::getDot($array, $key);
         }
 
@@ -562,7 +561,7 @@ abstract class Arr
      * @param int|float $step The increment between values in the sequence.
      * @return array An array of values from start to end, inclusive.
      */
-    public static function range(string|int|float $start, string|int|float $end, int|float $step = 1): array
+    public static function range(float|int|string $start, float|int|string $end, float|int $step = 1): array
     {
         return range($start, $end, $step);
     }
@@ -614,7 +613,7 @@ abstract class Arr
                 continue;
             }
 
-            foreach ($pointer AS &$point) {
+            foreach ($pointer as &$point) {
                 static::setDot(
                     $point,
                     static::join($keys, '.'),
@@ -745,5 +744,4 @@ abstract class Arr
             [] :
             [$value];
     }
-
 }

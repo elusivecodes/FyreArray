@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait CountTestTrait
 {
-
     public function testCount(): void
     {
         $this->assertSame(
@@ -23,5 +22,4 @@ trait CountTestTrait
             Arr::count(['a', 'b' => ['c']], Arr::COUNT_RECURSIVE)
         );
     }
-
 }

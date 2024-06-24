@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait IndexOfTestTrait
 {
-
     public function testIndexOf(): void
     {
         $this->assertSame(
@@ -24,14 +23,6 @@ trait IndexOfTestTrait
         );
     }
 
-    public function testIndexOfWithStrict(): void
-    {
-        $this->assertSame(
-            2,
-            Arr::indexOf([1, 2, '1', 3, '1', '1', 4, 1], '1', true)
-        );
-    }
-
     public function testIndexOfWithoutMatch(): void
     {
         $this->assertFalse(
@@ -39,4 +30,11 @@ trait IndexOfTestTrait
         );
     }
 
+    public function testIndexOfWithStrict(): void
+    {
+        $this->assertSame(
+            2,
+            Arr::indexOf([1, 2, '1', 3, '1', '1', 4, 1], '1', true)
+        );
+    }
 }

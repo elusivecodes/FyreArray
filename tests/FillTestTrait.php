@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait FillTestTrait
 {
-
     public function testFill(): void
     {
         $this->assertSame(
@@ -15,5 +14,4 @@ trait FillTestTrait
             Arr::fill(3, 'a')
         );
     }
-
 }

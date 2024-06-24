@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait ColumnTestTrait
 {
-
     public function testColumn(): void
     {
         $this->assertSame(
@@ -41,5 +40,4 @@ trait ColumnTestTrait
             ], 'a')
         );
     }
-
 }

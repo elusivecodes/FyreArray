@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait KeysTestTrait
 {
-
     public function testKeys(): void
     {
         $this->assertSame(
@@ -15,5 +14,4 @@ trait KeysTestTrait
             Arr::keys(['a' => 1, 'b' => 2, 'c' => 3])
         );
     }
-
 }

@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait UnshiftTestTrait
 {
-
     public function testUnshift(): void
     {
         $array = [1, 2, 3];
@@ -33,5 +32,4 @@ trait UnshiftTestTrait
             $array
         );
     }
-
 }

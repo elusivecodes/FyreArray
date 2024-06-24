@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait LastIndexOfTestTrait
 {
-
     public function testLastIndexOf(): void
     {
         $this->assertSame(
@@ -24,14 +23,6 @@ trait LastIndexOfTestTrait
         );
     }
 
-    public function testLastIndexOfWithStrict(): void
-    {
-        $this->assertSame(
-            5,
-            Arr::lastIndexOf([1, 2, '1', 3, '1', '1', 4, 1], '1', true)
-        );
-    }
-
     public function testLastIndexOfWithoutMatch(): void
     {
         $this->assertFalse(
@@ -39,4 +30,11 @@ trait LastIndexOfTestTrait
         );
     }
 
+    public function testLastIndexOfWithStrict(): void
+    {
+        $this->assertSame(
+            5,
+            Arr::lastIndexOf([1, 2, '1', 3, '1', '1', 4, 1], '1', true)
+        );
+    }
 }

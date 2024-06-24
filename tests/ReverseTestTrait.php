@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait ReverseTestTrait
 {
-
     public function testReverse(): void
     {
         $this->assertSame(
@@ -15,5 +14,4 @@ trait ReverseTestTrait
             Arr::reverse([1, 2, 3])
         );
     }
-
 }

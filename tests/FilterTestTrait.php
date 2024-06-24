@@ -7,11 +7,10 @@ use Fyre\Utility\Arr;
 
 trait FilterTestTrait
 {
-
     public function testFilter(): void
     {
         $this->assertSame(
-            [1 => 1, 3 => 2, 4 =>3],
+            [1 => 1, 3 => 2, 4 => 3],
             Arr::filter([0, 1, '', 2, 3])
         );
     }
@@ -31,5 +30,4 @@ trait FilterTestTrait
             Arr::filter([1, 2, 3, 4, 5], fn($key) => $key > 2, Arr::FILTER_KEY)
         );
     }
-
 }

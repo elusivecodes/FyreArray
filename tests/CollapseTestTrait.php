@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait CollapseTestTrait
 {
-
     public function testCollapse(): void
     {
         $this->assertSame(
@@ -39,5 +38,4 @@ trait CollapseTestTrait
             Arr::collapse(['a' => 1], ['b' => 2], ['c' => 3])
         );
     }
-
 }

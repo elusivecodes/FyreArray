@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait PopTestTrait
 {
-
     public function testPop(): void
     {
         $array = [1, 2, 3];
@@ -34,5 +33,4 @@ trait PopTestTrait
             Arr::pop($array)
         );
     }
-
 }

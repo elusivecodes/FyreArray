@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait WrapTestTrait
 {
-
     public function testWrap(): void
     {
         $this->assertSame(
@@ -31,5 +30,4 @@ trait WrapTestTrait
             Arr::wrap(null)
         );
     }
-
 }

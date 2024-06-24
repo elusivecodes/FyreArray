@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait IntersectTestTrait
 {
-
     public function testIntersect(): void
     {
         $this->assertSame(
@@ -23,5 +22,4 @@ trait IntersectTestTrait
             Arr::intersect([1, 2, 3, 4, 5], [1, 3, 5], [1, 3, 4])
         );
     }
-
 }

@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait UniqueTestTrait
 {
-
     public function testUnique(): void
     {
         $this->assertSame(
@@ -23,5 +22,4 @@ trait UniqueTestTrait
             Arr::unique([1, 2, 1, 3, '01', 4], Arr::SORT_STRING)
         );
     }
-
 }

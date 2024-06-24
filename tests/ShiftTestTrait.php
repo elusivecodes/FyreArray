@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait ShiftTestTrait
 {
-
     public function testShift(): void
     {
         $array = [1, 2, 3];
@@ -34,5 +33,4 @@ trait ShiftTestTrait
             Arr::shift($array)
         );
     }
-
 }

@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait MergeTestTrait
 {
-
     public function testMerge(): void
     {
         $this->assertSame(
@@ -31,5 +30,4 @@ trait MergeTestTrait
             Arr::merge([1, 2], [3, 4], [5, 6])
         );
     }
-
 }

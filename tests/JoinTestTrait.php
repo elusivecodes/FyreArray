@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait JoinTestTrait
 {
-
     public function testJoin(): void
     {
         $this->assertSame(
@@ -23,5 +22,4 @@ trait JoinTestTrait
             Arr::join(['a', 'b', 'c'], '-')
         );
     }
-
 }

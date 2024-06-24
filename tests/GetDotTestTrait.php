@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait GetDotTestTrait
 {
-
     public function testGetDot(): void
     {
         $this->assertSame(
@@ -23,5 +22,4 @@ trait GetDotTestTrait
             Arr::getDot(['a' => 1, 'b' => ['c' => 2]], 'b.d', 3)
         );
     }
-
 }

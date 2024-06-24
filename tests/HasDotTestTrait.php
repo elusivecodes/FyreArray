@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait HasDotTestTrait
 {
-
     public function testHasDot(): void
     {
         $this->assertTrue(
@@ -21,5 +20,4 @@ trait HasDotTestTrait
             Arr::hasDot(['a' => 1, 'b' => ['c' => 2]], 'b.d')
         );
     }
-
 }

@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait HasKeyTestTrait
 {
-
     public function testHasKeyWithMatch(): void
     {
         $this->assertTrue(
@@ -21,5 +20,4 @@ trait HasKeyTestTrait
             Arr::hasKey(['a' => 1, 'b' => 2], 'c')
         );
     }
-
 }

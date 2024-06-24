@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait PushTestTrait
 {
-
     public function testPush(): void
     {
         $array = [1, 2, 3];
@@ -33,5 +32,4 @@ trait PushTestTrait
             $array
         );
     }
-
 }

@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait IncludesTestTrait
 {
-
     public function testIncludesWithMatch(): void
     {
         $this->assertTrue(
@@ -21,5 +20,4 @@ trait IncludesTestTrait
             Arr::includes([1, 2, 3], 4)
         );
     }
-
 }

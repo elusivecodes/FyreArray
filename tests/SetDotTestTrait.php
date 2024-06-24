@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait SetDotTestTrait
 {
-
     public function testSetDot(): void
     {
         $this->assertSame(
@@ -49,5 +48,4 @@ trait SetDotTestTrait
             Arr::setDot(['a' => 1, 'b' => ['c' => 2, 'd' => 0]], 'b.d', 3, false)
         );
     }
-
 }

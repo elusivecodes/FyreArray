@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait PadTestTrait
 {
-
     public function testPad(): void
     {
         $this->assertSame(
@@ -15,5 +14,4 @@ trait PadTestTrait
             Arr::pad([1], 3, 0)
         );
     }
-
 }

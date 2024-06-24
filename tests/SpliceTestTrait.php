@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait SpliceTestTrait
 {
-
     public function testSplice(): void
     {
         $array = [1, 2, 3, 4, 5, 6];
@@ -72,5 +71,4 @@ trait SpliceTestTrait
             $array
         );
     }
-
 }

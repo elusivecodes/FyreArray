@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait FlattenTestTrait
 {
-
     public function testFlatten(): void
     {
         $this->assertSame(
@@ -31,5 +30,4 @@ trait FlattenTestTrait
             Arr::flatten([1, 2, [3, [4, 5]]], 2)
         );
     }
-
 }

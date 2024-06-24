@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait RandomValueTestTrait
 {
-
     public function testRandomValue(): void
     {
         $array = [1, 2, 3];
@@ -30,5 +29,4 @@ trait RandomValueTestTrait
             $test
         );
     }
-
 }

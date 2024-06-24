@@ -7,18 +7,10 @@ use Fyre\Utility\Arr;
 
 trait IsArrayTestTrait
 {
-
     public function testIsArray(): void
     {
         $this->assertTrue(
             Arr::isArray([1, 2, 3])
-        );
-    }
-
-    public function testIsArrayString(): void
-    {
-        $this->assertFalse(
-            Arr::isArray('This is a test string')
         );
     }
 
@@ -29,17 +21,17 @@ trait IsArrayTestTrait
         );
     }
 
-    public function testIsArrayInt(): void
-    {
-        $this->assertFalse(
-            Arr::isArray(123)
-        );
-    }
-
     public function testIsArrayFloat(): void
     {
         $this->assertFalse(
             Arr::isArray(123.456)
+        );
+    }
+
+    public function testIsArrayInt(): void
+    {
+        $this->assertFalse(
+            Arr::isArray(123)
         );
     }
 
@@ -50,4 +42,10 @@ trait IsArrayTestTrait
         );
     }
 
+    public function testIsArrayString(): void
+    {
+        $this->assertFalse(
+            Arr::isArray('This is a test string')
+        );
+    }
 }

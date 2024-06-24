@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait PluckDotTestTrait
 {
-
     public function testPluckDot(): void
     {
         $this->assertSame(
@@ -23,5 +22,4 @@ trait PluckDotTestTrait
             Arr::pluckDot([['b' => ['d' => 1]], ['b' => 0]], 'b.d')
         );
     }
-
 }

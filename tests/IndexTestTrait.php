@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait IndexTestTrait
 {
-
     public function testIndex(): void
     {
         $this->assertSame(
@@ -32,5 +31,4 @@ trait IndexTestTrait
             ], 'a')
         );
     }
-
 }

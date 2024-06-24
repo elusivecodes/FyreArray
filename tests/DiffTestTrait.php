@@ -7,7 +7,6 @@ use Fyre\Utility\Arr;
 
 trait DiffTestTrait
 {
-
     public function testDiff(): void
     {
         $this->assertSame(
@@ -31,5 +30,4 @@ trait DiffTestTrait
             Arr::diff([1, 2, 3, 4, 5], [1, 3], [1, 4])
         );
     }
-
 }
