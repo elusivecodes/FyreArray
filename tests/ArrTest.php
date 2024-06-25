@@ -55,5 +55,4 @@ final class ArrTest extends TestCase
     use UnshiftTestTrait;
     use ValuesTestTrait;
     use WrapTestTrait;
-
 }

@@ -8,4 +8,3 @@ $config = new Config();
 $config->getFinder()->in(__DIR__);
 
 return $config;
-

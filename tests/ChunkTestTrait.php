@@ -21,12 +21,12 @@ trait ChunkTestTrait
             [
                 [
                     0 => 1,
-                    1 => 2
+                    1 => 2,
                 ],
                 [
                     2 => 3,
-                    3 => 4
-                ]
+                    3 => 4,
+                ],
             ],
             Arr::chunk([1, 2, 3, 4], 2, true)
         );
@@ -37,7 +37,7 @@ trait ChunkTestTrait
         $this->assertSame(
             [
                 [1, 2],
-                [3, 4]
+                [3, 4],
             ],
             Arr::chunk([1, 2, 3, 4], 2)
         );

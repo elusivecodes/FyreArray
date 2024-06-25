@@ -13,7 +13,7 @@ trait ColumnTestTrait
             [1, 2],
             Arr::column([
                 ['a' => 1, 'b' => 2],
-                ['a' => 2, 'b' => 3]
+                ['a' => 2, 'b' => 3],
             ], 'a')
         );
     }
@@ -24,7 +24,7 @@ trait ColumnTestTrait
             [1],
             Arr::column([
                 ['a' => 1, 'b' => 2],
-                ['b' => 3]
+                ['b' => 3],
             ], 'a')
         );
     }
@@ -36,7 +36,7 @@ trait ColumnTestTrait
             Arr::column([
                 ['a' => 1, 'b' => 2],
                 ['a' => 2, 'b' => 3],
-                ['a' => 3, 'b' => 4]
+                ['a' => 3, 'b' => 4],
             ], 'a')
         );
     }

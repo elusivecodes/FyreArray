@@ -14,8 +14,8 @@ trait SetDotTestTrait
                 'a' => 1,
                 'b' => [
                     'c' => 2,
-                    'd' => 3
-                ]
+                    'd' => 3,
+                ],
             ],
             Arr::setDot(['a' => 1, 'b' => ['c' => 2]], 'b.d', 3)
         );
@@ -28,8 +28,8 @@ trait SetDotTestTrait
                 'a' => 1,
                 'b' => [
                     'c' => 2,
-                    'd' => 3
-                ]
+                    'd' => 3,
+                ],
             ],
             Arr::setDot(['a' => 1, 'b' => ['c' => 2, 'd' => 0]], 'b.d', 3)
         );
@@ -42,8 +42,8 @@ trait SetDotTestTrait
                 'a' => 1,
                 'b' => [
                     'c' => 2,
-                    'd' => 0
-                ]
+                    'd' => 0,
+                ],
             ],
             Arr::setDot(['a' => 1, 'b' => ['c' => 2, 'd' => 0]], 'b.d', 3, false)
         );

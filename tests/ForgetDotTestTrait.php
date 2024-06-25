@@ -13,8 +13,8 @@ trait ForgetDotTestTrait
             [
                 'a' => 1,
                 'b' => [
-                    'c' => 2
-                ]
+                    'c' => 2,
+                ],
             ],
             Arr::forgetDot(['a' => 1, 'b' => ['c' => 2, 'd' => 3]], 'b.d')
         );
@@ -26,8 +26,8 @@ trait ForgetDotTestTrait
             [
                 'a' => 1,
                 'b' => [
-                    'c' => 2
-                ]
+                    'c' => 2,
+                ],
             ],
             Arr::forgetDot(['a' => 1, 'b' => ['c' => 2]], 'b.d')
         );

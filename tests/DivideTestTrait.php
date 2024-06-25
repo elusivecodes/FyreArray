@@ -12,7 +12,7 @@ trait DivideTestTrait
         $this->assertSame(
             [
                 ['a', 'b', 'c'],
-                [1, 2, 3]
+                [1, 2, 3],
             ],
             Arr::divide(['a' => 1, 'b' => 2, 'c' => 3])
         );
