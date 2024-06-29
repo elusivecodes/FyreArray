@@ -103,8 +103,8 @@ abstract class Arr
     /**
      * Return the values from a single column in the input array.
      *
-     * @param string|int $key The column to pull values from.
-     * @param array $array The input array.
+     * @param array $arrays The input array.
+     * @param int|string $key The column to pull values from.
      * @return array An array of column values.
      */
     public static function column(array $arrays, int|string $key): array
@@ -364,7 +364,7 @@ abstract class Arr
      * Check if a given key exists in an array.
      *
      * @param array $array The input array.
-     * @param string|int|float The key to check for.
+     * @param float|int|string The key to check for.
      * @return bool Whether the given key exists in the array.
      */
     public static function hasKey(array $array, float|int|string $key): bool
@@ -388,7 +388,7 @@ abstract class Arr
      * Index a multi-dimensional array using a given key value.
      *
      * @param array $array The input array.
-     * @param string|int $key The column to pull key values from.
+     * @param int|string $key The column to pull key values from.
      * @return array The indexed array.
      */
     public static function index(array $array, int|string $key): array
@@ -402,7 +402,7 @@ abstract class Arr
      * @param array $array The input array.
      * @param mixed $value The value to search for.
      * @param bool $strict Whether to perform a strict search.
-     * @return string|int|false The first key for a matching value, otherwise FALSE.
+     * @return false|int|string The first key for a matching value, otherwise FALSE.
      */
     public static function indexOf(array $array, mixed $value, bool $strict = false): false|int|string
     {
@@ -472,7 +472,7 @@ abstract class Arr
      * @param array $array The input array.
      * @param mixed $value The value to search for.
      * @param bool $strict Whether to perform a strict search.
-     * @return string|int|false The last key for a matching value, otherwise FALSE.
+     * @return false|int|string The last key for a matching value, otherwise FALSE.
      */
     public static function lastIndexOf(array $array, $value, bool $strict = false): false|int|string
     {
@@ -600,9 +600,9 @@ abstract class Arr
     /**
      * Create an array containing a range of elements.
      *
-     * @param string|int|float $start The first value of the sequence.
-     * @param string|int|float $end The ending value in the sequence.
-     * @param int|float $step The increment between values in the sequence.
+     * @param float|int|string $start The first value of the sequence.
+     * @param float|int|string $end The ending value in the sequence.
+     * @param float|int $step The increment between values in the sequence.
      * @return array An array of values from start to end, inclusive.
      */
     public static function range(float|int|string $start, float|int|string $end, float|int $step = 1): array
