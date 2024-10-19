@@ -101,7 +101,7 @@ abstract class Arr
     }
 
     /**
-     * Return the values from a single column in the input array.
+     * Get the values from a single column in the input array.
      *
      * @param array $arrays The input array.
      * @param int|string $key The column to pull values from.
@@ -157,8 +157,8 @@ abstract class Arr
     public static function divide(array $array): array
     {
         return [
-            static::keys($array),
-            static::values($array),
+            array_keys($array),
+            array_values($array),
         ];
     }
 
@@ -178,9 +178,9 @@ abstract class Arr
                 $key = $prefix.'.'.$key;
             }
 
-            if (static::isArray($value)) {
+            if (is_array($value)) {
                 $dot = static::dot($value, $key);
-                $result = static::merge($result, $dot);
+                $result = array_merge($result, $dot);
             } else {
                 $result[$key] = $value;
             }
@@ -190,7 +190,7 @@ abstract class Arr
     }
 
     /**
-     * Return an array without the specified key/value pairs.
+     * Filter an array without the specified key/value pairs.
      *
      * @param array $array The input array.
      * @param array $keys The keys to remove.
@@ -198,10 +198,10 @@ abstract class Arr
      */
     public static function except(array $array, array $keys): array
     {
-        return static::filter(
+        return array_filter(
             $array,
-            fn(mixed $key): bool => !static::includes($keys, $key),
-            static::FILTER_KEY
+            fn(mixed $key): bool => !in_array($key, $keys),
+            ARRAY_FILTER_USE_KEY
         );
     }
 
@@ -260,7 +260,7 @@ abstract class Arr
     public static function findLast(array $array, callable $callback, mixed $default = null): mixed
     {
         return static::find(
-            static::reverse($array, true),
+            array_reverse($array, true),
             $callback,
             $default
         );
@@ -275,11 +275,11 @@ abstract class Arr
      */
     public static function flatten(array $array, int $maxDepth = 1): array
     {
-        return static::reduce(
+        return array_reduce(
             $array,
-            fn(mixed $a, mixed $b): mixed => static::merge(
+            fn(mixed $a, mixed $b): mixed => array_merge(
                 $a,
-                static::isArray($b) ?
+                is_array($b) ?
                     (
                         $maxDepth > 1 ?
                             static::flatten($b, $maxDepth - 1) :
@@ -304,8 +304,8 @@ abstract class Arr
 
         $pointer = &$array;
 
-        while (($key = static::shift($keys)) && static::count($keys) > 0) {
-            if (!static::isArray($pointer) || !static::hasKey($pointer, $key)) {
+        while (($key = array_shift($keys)) && count($keys) > 0) {
+            if (!is_array($pointer) || !array_key_exists($key, $pointer)) {
                 return $array;
             }
 
@@ -330,7 +330,7 @@ abstract class Arr
         $result = $array;
 
         foreach (explode('.', $key) as $key) {
-            if (!static::isArray($result) || !static::hasKey($result, $key)) {
+            if (!is_array($result) || !array_key_exists($key, $result)) {
                 return $default;
             }
 
@@ -341,7 +341,7 @@ abstract class Arr
     }
 
     /**
-     * Check if a given element exists in an array using "dot" notation.
+     * Determine whether a given element exists in an array using "dot" notation.
      *
      * @param array $array The input array.
      * @param string The key to check for.
@@ -350,7 +350,7 @@ abstract class Arr
     public static function hasDot(array $array, string $key): bool
     {
         foreach (explode('.', $key) as $key) {
-            if (!static::isArray($array) || !static::hasKey($array, $key)) {
+            if (!is_array($array) || !array_key_exists($key, $array)) {
                 return false;
             }
 
@@ -361,7 +361,7 @@ abstract class Arr
     }
 
     /**
-     * Check if a given key exists in an array.
+     * Determine whether a given key exists in an array.
      *
      * @param array $array The input array.
      * @param float|int|string The key to check for.
@@ -373,7 +373,7 @@ abstract class Arr
     }
 
     /**
-     * Check if a given value exists in an array.
+     * Determine whether a given value exists in an array.
      *
      * @param array $array The input array.
      * @param mixed The value to check for.
@@ -422,7 +422,7 @@ abstract class Arr
     }
 
     /**
-     * Determine if the value is an array.
+     * Determine whether the value is an array.
      *
      * @param mixed $value The value to test.
      * @return bool TRUE if the value is an array, otherwise FALSE.
@@ -433,7 +433,7 @@ abstract class Arr
     }
 
     /**
-     * Determine if an array has consecutive keys starting from 0.
+     * Determine whether an array has consecutive keys starting from 0.
      *
      * @param array $array The array to test.
      * @return bool TRUE if the value has consecutive keys starting from 0, otherwise FALSE.
@@ -456,7 +456,7 @@ abstract class Arr
     }
 
     /**
-     * Return all keys of an array.
+     * Get all keys of an array.
      *
      * @param array $array The input array.
      * @return array The array keys.
@@ -476,9 +476,9 @@ abstract class Arr
      */
     public static function lastIndexOf(array $array, $value, bool $strict = false): false|int|string
     {
-        return static::indexOf(
-            static::reverse($array, true),
+        return array_search(
             $value,
+            array_reverse($array, true),
             $strict
         );
     }
@@ -495,7 +495,7 @@ abstract class Arr
         return array_map(
             $callback,
             $array,
-            static::keys($array)
+            array_keys($array)
         );
     }
 
@@ -511,7 +511,7 @@ abstract class Arr
     }
 
     /**
-     * Return an array with only the specified key/value pairs.
+     * Filter an array with only the specified key/value pairs.
      *
      * @param array $array The input array.
      * @param array $keys The keys to include.
@@ -519,10 +519,10 @@ abstract class Arr
      */
     public static function only(array $array, array $keys): array
     {
-        return static::filter(
+        return array_filter(
             $array,
-            fn(mixed $key): bool => static::includes($keys, $key),
-            static::FILTER_KEY
+            fn(mixed $key): bool => in_array($key, $keys),
+            ARRAY_FILTER_USE_KEY
         );
     }
 
@@ -581,7 +581,7 @@ abstract class Arr
     }
 
     /**
-     * Return a random value from an array.
+     * Get a random value from an array.
      *
      * @param array $array The input array.
      * @return mixed A random value from the array.
@@ -624,7 +624,7 @@ abstract class Arr
     }
 
     /**
-     * Return an array with elements in reverse order.
+     * Reverse the order of elements in an array.
      *
      * @param array $array The input array.
      * @param bool $preserveKeys Whether to preserve the array keys.
@@ -650,9 +650,9 @@ abstract class Arr
 
         $pointer = &$array;
 
-        while (($key = static::shift($keys)) && static::count($keys) > 0) {
+        while (($key = array_shift($keys)) && count($keys) > 0) {
             if ($key !== '*') {
-                if (!static::hasKey($pointer, $key) || !static::isArray($pointer[$key])) {
+                if (!array_key_exists($key, $pointer) || !is_array($pointer[$key])) {
                     $pointer[$key] = [];
                 }
                 $pointer = &$pointer[$key];
@@ -663,7 +663,7 @@ abstract class Arr
             foreach ($pointer as &$point) {
                 static::setDot(
                     $point,
-                    static::join($keys, '.'),
+                    implode('.', $keys),
                     $value,
                     $overwrite
                 );
@@ -672,7 +672,7 @@ abstract class Arr
             return $array;
         }
 
-        if ($overwrite || !static::hasKey($pointer, $key)) {
+        if ($overwrite || !array_key_exists($key, $pointer)) {
             $pointer[$key] = $value;
         }
 
@@ -774,7 +774,7 @@ abstract class Arr
     }
 
     /**
-     * Return all values of an array.
+     * Get all values of an array.
      *
      * @param array $array The input array.
      * @return array The array values.
@@ -792,7 +792,7 @@ abstract class Arr
      */
     public static function wrap(mixed $value): array
     {
-        if (static::isArray($value)) {
+        if (is_array($value)) {
             return $value;
         }
 

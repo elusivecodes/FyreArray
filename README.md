@@ -52,7 +52,7 @@ $collapsed = Arr::collapse($array, ...$replacements);
 
 **Column**
 
-Return the values from a single column in the input array.
+Get the values from a single column in the input array.
 
 - `$array` is the input array.
 - `$key` is the column to pull values from.
@@ -118,7 +118,7 @@ $dot = Arr::dot($array, $prefix);
 
 **Except**
 
-Return an array without the specified key/value pairs.
+Filter an array without the specified key/value pairs.
 
 - `$array` is the input array.
 - `$keys` is an array containing the keys to remove.
@@ -212,7 +212,7 @@ $getDot = Arr::getDot($array, $key, $defaultValue);
 
 **Has Dot**
 
-Check if a given element exists in an array using "dot" notation.
+Determine whether a given element exists in an array using "dot" notation.
 
 - `$array` is the input array.
 - `$key` is the key to check for.
@@ -223,7 +223,7 @@ $hasDot = Arr::hasDot($array, $key);
 
 **Has Key**
 
-Check if a given key exists in an array.
+Determine whether a given key exists in an array.
 
 - `$array` is the input array.
 - `$key` is the key to check for.
@@ -234,7 +234,7 @@ $hasKey = Arr::hasKey($array, $key);
 
 **Includes**
 
-Check if a given value exists in an array.
+Determine whether a given value exists in an array.
 
 - `$array` is the input array.
 - `$value` is the value to check for.
@@ -280,7 +280,7 @@ $intersect = Arr::intersect($array, ...$arrays);
 
 **Is Array**
 
-Determine if the value is an array.
+Determine whether the value is an array.
 
 - `$value` is the value to test.
 
@@ -290,7 +290,7 @@ $isArray = Arr::isArray($value);
 
 **Is List**
 
-Determine if an array has consecutive keys starting from 0.
+Determine whether an array has consecutive keys starting from 0.
 
 - `$array` is the array to test.
 
@@ -311,7 +311,7 @@ $joined = Arr::join($array, $separator);
 
 **Keys**
 
-Return all keys of an array.
+Get all keys of an array.
 
 - `$array` is the input array.
 
@@ -356,7 +356,7 @@ $merged = Arr::merge($array, ...$arrays);
 
 **Only**
 
-Return an array with only the specified key/value pairs.
+Filter an array with only the specified key/value pairs.
 
 - `$array` is the input array.
 - `$keys` is an array containing the keys to include.
@@ -412,7 +412,7 @@ $newCount = Arr::push($array, ...$values);
 
 **Random Value**
 
-Return a random value from an array.
+Get a random value from an array.
 
 - `$array` is the input array.
 
@@ -446,7 +446,7 @@ $reduced = Arr::reduce($array, $callback, $initial);
 
 **Reverse**
 
-Return an array with elements in reverse order.
+Reverse the order of elements in an array.
 
 - `$array` is the input array.
 
@@ -548,7 +548,7 @@ $newCount = Arr::unshift($array, ...$values);
 
 **Values**
 
-Return all values of an array.
+Get all values of an array.
 
 - `$array` is the input array.
 
