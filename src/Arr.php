@@ -113,7 +113,7 @@ abstract class Arr
     }
 
     /**
-     * Creates an array by using one array for keys and another for its values.
+     * Create an array by using one array for keys and another for its values.
      *
      * @param array $keys The keys array.
      * @param array $values The values array.

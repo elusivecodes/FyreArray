@@ -63,7 +63,7 @@ $column = Arr::column($array, $key);
 
 **Combine**
 
-Creates an array by using one array for keys and another for its values.
+Create an array by using one array for keys and another for its values.
 
 - `$keys` is an array containing the keys.
 - `$values` is an array containing the values.
