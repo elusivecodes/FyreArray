@@ -5,12 +5,15 @@ namespace Fyre\Utility;
 
 use Closure;
 
+use function array_all;
+use function array_any;
 use function array_chunk;
 use function array_column;
 use function array_combine;
 use function array_diff;
 use function array_fill;
 use function array_filter;
+use function array_find_key;
 use function array_intersect;
 use function array_is_list;
 use function array_key_exists;
@@ -190,6 +193,18 @@ abstract class Arr
     }
 
     /**
+     * Determine whether every element in an array passes a callback.
+     *
+     * @param array $array The input array.
+     * @param callable $callback The callback function to use.
+     * @return bool TRUE if every element in the array passes the callback, otherwise FALSE.
+     */
+    public static function every(array $array, callable $callback): bool
+    {
+        return array_all($array, $callback);
+    }
+
+    /**
      * Filter an array without the specified key/value pairs.
      *
      * @param array $array The input array.
@@ -250,6 +265,18 @@ abstract class Arr
     }
 
     /**
+     * Find the first key in an array that satisfies a callback.
+     *
+     * @param array $array The input array.
+     * @param callable $callback The callback function to use.
+     * @return mixed The first key satisfying the callback.
+     */
+    public static function findKey(array $array, callable $callback): mixed
+    {
+        return array_find_key($array, $callback);
+    }
+
+    /**
      * Find the last value in an array that satisfies a callback.
      *
      * @param array $array The input array.
@@ -263,6 +290,21 @@ abstract class Arr
             array_reverse($array, true),
             $callback,
             $default
+        );
+    }
+
+    /**
+     * Find the last key in an array that satisfies a callback.
+     *
+     * @param array $array The input array.
+     * @param callable $callback The callback function to use.
+     * @return mixed The last key satisfying the callback.
+     */
+    public static function findLastKey(array $array, callable $callback): mixed
+    {
+        return array_find_key(
+            array_reverse($array, true),
+            $callback
         );
     }
 
@@ -511,6 +553,18 @@ abstract class Arr
     }
 
     /**
+     * Determine whether no elements in an array pass a callback.
+     *
+     * @param array $array The input array.
+     * @param callable $callback The callback function to use.
+     * @return bool TRUE if no elements in the array pass the callback, otherwise FALSE.
+     */
+    public static function none(array $array, callable $callback): bool
+    {
+        return !array_any($array, $callback);
+    }
+
+    /**
      * Filter an array with only the specified key/value pairs.
      *
      * @param array $array The input array.
@@ -715,6 +769,18 @@ abstract class Arr
     public static function slice(array $array, int $offset = 0, int|null $length = null, bool $preserveKeys = false): array
     {
         return array_slice($array, $offset, $length, $preserveKeys);
+    }
+
+    /**
+     * Determine whether some elements in an array pass a callback.
+     *
+     * @param array $array The input array.
+     * @param callable $callback The callback function to use.
+     * @return bool TRUE if some elements in the array pass the callback, otherwise FALSE.
+     */
+    public static function some(array $array, callable $callback): bool
+    {
+        return array_any($array, $callback);
     }
 
     /**

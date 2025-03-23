@@ -116,6 +116,17 @@ Flatten a multi-dimensional array using "dot" notation.
 $dot = Arr::dot($array, $prefix);
 ```
 
+**Every**
+
+Determine whether every element in an array passes a callback.
+
+- `$array` is the input array.
+- `$callback` is the callback function to use.
+
+```php
+$every = Arr::every($array, $callback);
+```
+
 **Except**
 
 Filter an array without the specified key/value pairs.
@@ -164,6 +175,17 @@ Find the first value in an array that satisfies a callback.
 $find = Arr::find($array, $callback, $default);
 ```
 
+**Find Key**
+
+Find the first key in an array that satisfies a callback.
+
+- `$array` is the input array.
+- `$callback` is the callback function to use.
+
+```php
+$findKey = Arr::findKey($array, $callback);
+```
+
 **Find Last**
 
 Find the last value in an array that satisfies a callback.
@@ -174,6 +196,17 @@ Find the last value in an array that satisfies a callback.
 
 ```php
 $findLast = Arr::findLast($array, $callback, $default);
+```
+
+**Find Last Key**
+
+Find the last key in an array that satisfies a callback.
+
+- `$array` is the input array.
+- `$callback` is the callback function to use.
+
+```php
+$findLastKey = Arr::findLastKey($array, $callback);
 ```
 
 **Flatten**
@@ -354,6 +387,17 @@ All additional arguments supplied will be merged with the first array.
 $merged = Arr::merge($array, ...$arrays);
 ```
 
+**None**
+
+Determine whether no elements in an array pass a callback.
+
+- `$array` is the input array.
+- `$callback` is the callback function to use.
+
+```php
+$none = Arr::none($array, $callback);
+```
+
 **Only**
 
 Filter an array with only the specified key/value pairs.
@@ -498,6 +542,17 @@ Extract a slice of the array.
 
 ```php
 $slice = Arr::slice($array, $offset, $length, $preserveKeys);
+```
+
+**Some**
+
+Determine whether some elements in an array pass a callback.
+
+- `$array` is the input array.
+- `$callback` is the callback function to use.
+
+```php
+$some = Arr::some($array, $callback);
 ```
 
 **Sort**

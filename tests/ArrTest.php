@@ -15,9 +15,12 @@ final class ArrTest extends TestCase
     use DiffTestTrait;
     use DivideTestTrait;
     use DotTestTrait;
+    use EveryTestTrait;
     use ExceptTestTrait;
     use FillTestTrait;
     use FilterTestTrait;
+    use FindKeyTestTrait;
+    use FindLastKeyTestTrait;
     use FindLastTestTrait;
     use FindTestTrait;
     use FlattenTestTrait;
@@ -36,6 +39,7 @@ final class ArrTest extends TestCase
     use LastIndexOfTestTrait;
     use MapTestTrait;
     use MergeTestTrait;
+    use NoneTestTrait;
     use OnlyTestTrait;
     use PadTestTrait;
     use PluckDotTestTrait;
@@ -49,6 +53,7 @@ final class ArrTest extends TestCase
     use ShiftTestTrait;
     use ShuffleTestTrait;
     use SliceTestTrait;
+    use SomeTestTrait;
     use SortTestTrait;
     use SpliceTestTrait;
     use UniqueTestTrait;
