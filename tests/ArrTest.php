@@ -3,7 +3,11 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use Fyre\Utility\Arr;
+use Fyre\Utility\Traits\MacroTrait;
 use PHPUnit\Framework\TestCase;
+
+use function class_uses;
 
 final class ArrTest extends TestCase
 {
@@ -60,4 +64,12 @@ final class ArrTest extends TestCase
     use UnshiftTestTrait;
     use ValuesTestTrait;
     use WrapTestTrait;
+
+    public function testMacroable(): void
+    {
+        $this->assertContains(
+            MacroTrait::class,
+            class_uses(Arr::class)
+        );
+    }
 }

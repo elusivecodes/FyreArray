@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Fyre\Utility;
 
 use Closure;
+use Fyre\Utility\Traits\MacroTrait;
 
 use function array_all;
 use function array_any;
@@ -58,6 +59,8 @@ use const SORT_STRING;
  */
 abstract class Arr
 {
+    use MacroTrait;
+
     public const COUNT_NORMAL = COUNT_NORMAL;
 
     public const COUNT_RECURSIVE = COUNT_RECURSIVE;
@@ -170,20 +173,18 @@ abstract class Arr
      *
      * @param array $array The input array.
      * @param string|null $prefix The key prefix.
+     * @param array $result The result array.
      * @return array The flattened array.
      */
-    public static function dot(array $array, string|null $prefix = null): array
+    public static function dot(array $array, string|null $prefix = null, array &$result = []): array
     {
-        $result = [];
-
         foreach ($array as $key => $value) {
             if ($prefix) {
                 $key = $prefix.'.'.$key;
             }
 
             if (is_array($value)) {
-                $dot = static::dot($value, $key);
-                $result = array_merge($result, $dot);
+                static::dot($value, $key, $result);
             } else {
                 $result[$key] = $value;
             }
@@ -313,24 +314,24 @@ abstract class Arr
      *
      * @param array $array The input array.
      * @param int $maxDepth The maximum depth to flatten.
+     * @param array $result The result array.
      * @return array The flattened array.
      */
-    public static function flatten(array $array, int $maxDepth = 1): array
+    public static function flatten(array $array, int $maxDepth = 1, array &$result = []): array
     {
-        return array_reduce(
-            $array,
-            fn(mixed $a, mixed $b): mixed => array_merge(
-                $a,
-                is_array($b) ?
-                    (
-                        $maxDepth > 1 ?
-                            static::flatten($b, $maxDepth - 1) :
-                            $b
-                    ) :
-                    [$b]
-            ),
-            []
-        );
+        foreach ($array as $value) {
+            if (is_array($value)) {
+                if ($maxDepth > 1) {
+                    static::flatten($value, $maxDepth - 1, $result);
+                } else {
+                    array_push($result, ...$value);
+                }
+            } else {
+                $result[] = $value;
+            }
+        }
+
+        return $result;
     }
 
     /**
