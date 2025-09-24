@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use Fyre\Utility\Arr;
-use Fyre\Utility\Traits\MacroTrait;
+use Fyre\Utility\Traits\StaticMacroTrait;
 use PHPUnit\Framework\TestCase;
 
 use function class_uses;
@@ -68,7 +68,7 @@ final class ArrTest extends TestCase
     public function testMacroable(): void
     {
         $this->assertContains(
-            MacroTrait::class,
+            StaticMacroTrait::class,
             class_uses(Arr::class)
         );
     }

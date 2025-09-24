@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Fyre\Utility;
 
 use Closure;
-use Fyre\Utility\Traits\MacroTrait;
+use Fyre\Utility\Traits\StaticMacroTrait;
 
 use function array_all;
 use function array_any;
@@ -59,7 +59,7 @@ use const SORT_STRING;
  */
 abstract class Arr
 {
-    use MacroTrait;
+    use StaticMacroTrait;
 
     public const COUNT_NORMAL = COUNT_NORMAL;
 
