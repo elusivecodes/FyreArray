@@ -216,7 +216,7 @@ abstract class Arr
     {
         return array_filter(
             $array,
-            fn(mixed $key): bool => !in_array($key, $keys),
+            static fn(mixed $key): bool => !in_array($key, $keys),
             ARRAY_FILTER_USE_KEY
         );
     }
@@ -576,7 +576,7 @@ abstract class Arr
     {
         return array_filter(
             $array,
-            fn(mixed $key): bool => in_array($key, $keys),
+            static fn(mixed $key): bool => in_array($key, $keys),
             ARRAY_FILTER_USE_KEY
         );
     }
